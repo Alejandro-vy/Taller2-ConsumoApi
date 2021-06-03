@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="loading" class="text-center my-3 d-flex justify-content-center">
+    <div v-if="isLoading" class="text-center my-3 d-flex justify-content-center">
       <b-spinner variant="primary" style="width: 5rem; height: 5rem" />
     </div>
 
@@ -28,9 +28,9 @@ export default {
     this.getOneMovie();
   },
   methods: {
-    async getOneMovie(id) {
-      console.log(id);
-      const { data } = await api.getMovie(id);
+    async getOneMovie() {
+      console.log(this.$route.params.id);
+      const { data } = await api.getMovie(this.$route.params.id);
       this.movie = new Movie(data);
       this.isLoading = false;
     },

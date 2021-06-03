@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-4">
-    <router-link :to="'/movies/${movie.id}'">
+    <router-link :to="`/movies/${movie.id}`">
       <div class="movie-card__right">
         <span> {{ movieId }} </span>
         <img
